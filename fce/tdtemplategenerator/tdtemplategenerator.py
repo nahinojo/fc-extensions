@@ -4,7 +4,7 @@ import FreeCAD
 
 class TDTemplateGenerator:
     """
-    Writes custom SVG files to be used as TechDraw Templates
+    Writes custom SVG files to be used as TechDraw Templates.
 
     Parameters
     ----------
@@ -88,12 +88,12 @@ class TDTemplateGenerator:
         Parameters
         ----------
         number: str, int, float
-            Numerical value in not in millimeters
+            Numerical value in not in millimeters.
 
         Returns
         -------
         str
-            Numerical value in millimeters
+            Numerical value in millimeters.
         """
         if number not in {"v", "V", "h", "H"}:
             if type(number) == str:
@@ -141,6 +141,7 @@ class TDTemplateGenerator:
         x: str
             Number that represents x-coordinate of starting point.
         y: str
+            Number that represents y-coordinate of starting point.
         width: str
             Number that represents rectangle width extending through x+.
         height: str
@@ -210,9 +211,9 @@ class TDTemplateGenerator:
         identifier: str
             Element ID for documentation purposes.
         style: str
-            Styling attributes for elements within <g>
+            Styling attributes for elements within <g>.
         transform:
-            Transformation attributes for elements within <g>
+            Transformation attributes for elements within <g>.
         """
         self.write("<g")
         self.indent_level += 1
@@ -235,7 +236,7 @@ class TDTemplateGenerator:
         ---------
         svg_type: str
             SVG element to render.
-            May only be 'rect', 'path', 'text', or 'text_editable'
+            May only be 'rect', 'path', 'text', or 'text_editable'.
         params: str
             Parameters for rendering the SVG element (see above SVG construction methods).
         """
@@ -251,7 +252,7 @@ class TDTemplateGenerator:
 
     def end_graphic(self):
         """
-        Closes <g> SVG element writing for current <g>
+        Closes <g> SVG element writing for current <g>.
         """
         self.indent_level -= 1
         self.write("</g>")
@@ -260,7 +261,7 @@ class TDTemplateGenerator:
     def close_svg(self):
         """
         Closes SVG writing.
-        Must be committed at final step of SVG writing.
+        Must be executed at final step of SVG writing.
         """
         self.indent_level = 0
         self.write("</svg>")
@@ -269,7 +270,7 @@ class TDTemplateGenerator:
 
     def create_frame(self):
         """
-        Draws inner border around SVG
+        Draws inner border around SVG.
         """
         self.start_graphic(
             "frame-border",
