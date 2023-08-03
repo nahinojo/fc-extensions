@@ -1,5 +1,5 @@
 import string
-from mfl.tdtemplategenerator.tdtemplategenerator import TDTemplateGenerator
+from fce.tdtemplategenerator.tdtemplategenerator import TDTemplateGenerator
 
 
 class TDTemplateGeneratorPrime(TDTemplateGenerator):
